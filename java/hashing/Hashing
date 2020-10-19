@@ -1,0 +1,142 @@
+Hashing is primarily used for storing dictionaries (key-value pairs)
+
+Search, Insert , Delete - O(1) time
+
+In array, data storage in sorted way and unsorted ways has different time complexities
+         /      \
+  Sorted way     Unsorted way
+  Search: O(1)      Search: O(n)
+  Insert: O(n)      Insert: O(1)
+  Delete:O(n)       Delete: O(1)
+
+  AVL and Red-black trees take O(logn) time for search, insert and delete
+
+  Hashing beats Arrays, AVL and Red-black trees
+
+  Operations not useful for Hashing
+    1. Finding closest value
+    2. Sorted Data
+    3. Prefix Searching
+
+ For operations 1 and 2, AVL and Red-black trees are used.
+ Tries is used for Prefix searching
+
+ Applications of Hashing
+
+ 1. Implementing dictionaries
+ 2. Database indexing (implemented using B, B+ trees or hashing)
+ 3. Cryptography (paswword storage by login site)
+ 4. Cache (browser cache, session cache, data cache)
+ 5. Symbol Tables in Compilers/Interpreters
+ 6. Routers (find our device for given ip address)
+ 7. Fetch data from databases (store data in the form of associative arrays)
+ many more....
+
+ Hash table is most used data structure
+
+1.  Direct Address Table
+
+ Lets say there are 1000 keys whose  values range from 0-999
+ How can we implement search, insert and delete such that each takes O(1) time
+ Insert(10)
+ Insert(20)
+ Insert(119)
+ Search(10)
+ Delete(119)
+ .
+ .
+
+ Solution: Create a boolean array of size 1000.
+ For each and every element for insertion mark the particular value in boolean array as 1 / true.
+ For delete(119), mark the value at table as 0.
+
+ delete(i)
+ {
+  table[i] = 0;
+ }
+ insert(i)
+ {
+   table[i]=1;
+ }
+ search(i)
+ {
+ return table[i];
+ }
+
+ Direct address table handles when keys are small range values and can be stored in an array. However it cannot handle large keys for example, phone numbers or
+ floating point numbers or  Strings
+
+ 2. Hashing Function:
+ (key)% (size of table)
+ Hos hash function work ?
+    -> Every time for a key it should generate same value
+    -> should generate values from 0 to m-1 (m is the size of the table)
+    -> should be fast. O(1) for integers , O(len) for strings of length 'n'
+    -> should uniformly distribute the large keys into hash table slots
+
+  Examples of Hash functions
+  1. large-kye % m
+  2. For Strings, weighted sum,
+  sum = str[0]*x0 + str[1]*x1 + str[2]*x2 + ....
+
+  sum % m
+
+  3. Universal hashing: Group of hash functions available, randomly pick a hash function and hash all the data in hash table
+  Ensure that the expected time is O(1).
+
+
+  hash table size is dependent on the number of entries
+  Avoid having m values as 10 powers
+
+3. Collision Handling
+When keys are too many (keys not known in advance), more than 1 key can result in same hash value, this results in collision
+When keys are known in advance, it results in perfect hashing (no collision)
+
+handle collision:
+Chaining -> create chain of colliding elements
+Open addressing
+    -> Linear probing
+    -> Quadratic probing
+    -> Double Hashing
+
+Separate Chaining:
+Each cell in hash table maintains linked list of records
+When a collision occurs, for 2 or more different keys, store them in linked list
+
+Disadvantages:
+For too many collisions for same slot, it takes O(n) time to search for an element
+Extra space for links
+Cache performance of chaining is not good.
+
+Open Addressing:
+Linear Probing
+if slot hash(x) %S is full, check for (hash(x) + 1)%S.
+if (hash(x) + 1)%S is full, check for (hash(x) + 2)%S.
+..
+When there are many consecutive elements searching for empty slot itself will take O(n) time
+
+Quadratic probing
+if slot hash(x) %S is full, check for (hash(x) + 1*1)%S.
+if (hash(x) + 1*1)%S is full, check for (hash(x) + 2*2)%S.
+..
+
+Double Hashing:
+Use another hash function hash2(x) and look for i*hash2(x) slot.
+If slot hash(x) % S is full, then we try (hash(x) + 1*hash2(x)) % S
+If (hash(x) + 1*hash2(x)) % S is also full, then we try (hash(x) + 2*hash2(x)) % S
+If (hash(x) + 2*hash2(x)) % S is also full, then we try (hash(x) + 3*hash2(x)) % S
+..
+
+Hash Set in java: uses the concept of hashing to store keys (hash table).
+
+
+
+
+
+
+
+
+
+
+
+
