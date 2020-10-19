@@ -1,0 +1,145 @@
+
+
+
+public void recordEvent(String eventName, long timeInMillis)
+
+Map<Integer, Long> getEventCountByGranularity(String eventName, Granularity g, long startTime, long endTime);
+
+logging , day , 00:00 12:30
+
+
+
+
+1> Batch use case
+
+raw events ; eventid, eventname, date, ....
+
+recordEvent(event)
+{
+
+// cleans you event
+// parse
+
+(eventname, timestamp)
+
+} -> topic1
+
+
+2. consumer // read from
+
+if(g.euals("DAY)")
+{
+  diff - start end time /  24 hrs
+          diff - <1 day
+            >= 1
+
+
+}
+
+HOUR
+{
+
+    - 4 hrs
+
+
+}
+
+MONTH
+
+{
+
+}
+
+
+eventname | timestamp
+1           00::00
+1           13:44
+1
+
+
+1
+
+1
+1
+
+13 , 17
+
+
+eventName, granulariy,   count
+
+
+
+10 events - 10 records - ResultSet
+
+
+1 2020-07-13: 13:00
+1 2020-07_14 : 13:22
+1 13:44
+1 14:23
+1 14:46
+1 15:16
+1 15:35
+1 15:33
+1
+
+1> hourly sapinning across multiple days
+
+1 13 13
+1 14 13
+
+
+
+2> day
+
+
+
+
+Daily
+
+
+
+List of tuples
+
+(event name, timestamp) -> (eventname , hour)
+
+
+1, 13
+1, 13
+1, 13
+1, 14
+1, 14
+1, 14
+1, 15
+
+1, 13 : 3
+1, 14  : 2
+1, 15 : 3
+
+
+{
+  even name:
+
+  hourly
+  {
+    13:
+    14 :
+    15:
+  }
+
+}
+
+
+List(1)
+
+
+
+
+
+
+
+
+13 to 15
+ 2 hrs
+
+
+
