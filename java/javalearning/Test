@@ -1,0 +1,83 @@
+
+
+[ 1  2  3
+ 4  5   6
+ 7   8.  9]
+
+
+ size of the matrix
+
+ m-2, n-2
+
+ int max = 0 ;
+
+for( i < rows)
+{
+
+   for( j < rows)
+   {
+
+
+    if(i == m-2, n-2)
+          continue ;
+
+          a[i][j]
+
+       // calculate adjacent indices
+       if i = 0
+       [i][j-1], [i][j+1], [i+1][j], [i+1][j-1], [i+1][j+1]
+
+       // if i > 0
+
+       sum =
+
+      max = Math.max(max , sum)
+
+
+   }
+}
+
+max
+
+O(n2)
+
+2>  [ 1  2  3 4
+     5  6   7 8
+     ]
+
+HashMap<Integer, integer>
+   lookup_table:
+     [ [i,j], [i, j+2] :  4
+        [i,j], [i+1, J+2} 8
+         [i,j]    ]
+
+     int i = 0;
+     int j = 0;
+     fun(ele, i, j)
+     {
+       if( i > m && j > n)
+           return;
+
+         int ele = a[i][j];
+
+         // adjacent indices
+         // [i][j-1], [i][j+1], [i+1][j], [i+1][j-1], [i+1][j+1]
+
+          // indices considered
+          // [i][j+2....j+n-1], [i+1][j+2 .... j+n-1]
+          [3, 4, 7, 8 ]
+
+           int nextelement = a[i][j+2];
+
+           current_Sum  = ele + nextelement;
+           if( look_uptable[i][j] < current_sum);
+           look_uptable[i][j] = current_Sum;
+
+           fun(nextElement, i , j+2)
+
+     }
+
+
+
+
+
